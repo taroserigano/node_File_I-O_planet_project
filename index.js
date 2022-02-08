@@ -11,7 +11,9 @@ function isHabitablePlanet(planet) {
 
 fs.createReadStream('kepler_data.csv')
   .pipe(parse({
+    //treat "#" as "comment"
     comment: '#',
+    //read the file as JavaScript object, key: value pair
     columns: true,
   }))
   .on('data', (data) => {
